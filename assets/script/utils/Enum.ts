@@ -37,9 +37,9 @@ export enum ColorLable {
 }
 
 export enum TimeLeftLevel {
-    Level1 = 25,
-    Level2 = 35,
-    Level3 = 45,
+    Level1 = 60,
+    Level2 = 75,
+    Level3 = 90,
 }
 
 export enum GameLevel {

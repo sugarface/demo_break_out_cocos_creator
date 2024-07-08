@@ -3,8 +3,7 @@ import GameLogic from "../model/Game_Logic";
 import { EventName, PhysicalTag, RoundController } from "../utils/Enum";
 
 const { ccclass, property } = cc._decorator;
-const DEFAULT_LINEAR_VELOCITY_NORMAL = 600;
-const DEFAULT_LINEAR_VELOCITY_SLOW = 200;
+const DEFAULT_LINEAR_VELOCITY_NORMAL = 400;
 
 @ccclass
 export default class Ball extends cc.Component {
@@ -65,6 +64,7 @@ export default class Ball extends cc.Component {
     }
 
     private listenerNextLevel(event, data) {
+        this.handleBallNextLevel(data);
         this.reset();
     }
 
@@ -79,6 +79,24 @@ export default class Ball extends cc.Component {
             this.ballSprite.node.angle -= 30;
         } else {
             this.ballSprite.node.angle += 30;
+        }
+    }
+
+    private handleBallNextLevel(data) {
+        let speed: number = 0;
+        switch (data) {
+            case 2:
+                speed = DEFAULT_LINEAR_VELOCITY_NORMAL + 100;
+                this.getComponent(cc.RigidBody).linearVelocity = cc.v2(speed, speed);
+                break;
+            case 3:
+                speed = DEFAULT_LINEAR_VELOCITY_NORMAL + 200;
+                this.getComponent(cc.RigidBody).linearVelocity = cc.v2(speed, speed);
+                break;
+            default:
+                speed = DEFAULT_LINEAR_VELOCITY_NORMAL;
+                this.getComponent(cc.RigidBody).linearVelocity = cc.v2(speed, speed);
+                break;
         }
     }
 
