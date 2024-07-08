@@ -1,0 +1,8 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "name": "Demo_block_breaker",
+  "id": "a57c9ef0-f66a-481c-aeca-9b4fd6768fa0",
+  "version": "2.4.5",
+  "isNew": false
+}
